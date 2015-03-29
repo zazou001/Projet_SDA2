@@ -1,5 +1,5 @@
 #ifndef SOMMET_H_
-#define SOMMET_H
+#define SOMMET_H_
 
 typedef struct{
 	float coord[3];
