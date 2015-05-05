@@ -34,5 +34,5 @@ archive : clean
 clean : 
 	rm obj/* bin/* 
 	
-test :
-	 cd bin && ./$(EXEC) cube.off && cd ..
+test : main.o
+	 bin/$(EXEC) off/cube.off
