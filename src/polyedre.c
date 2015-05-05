@@ -53,21 +53,10 @@ ListInt FaceAdjacentes(polyedre p, int i){
 	j=0;
 	while(j<listface->length)
 	{
-		if(listface->ldata[j] == i){
-			for(k=j;k<listface->length;k++)
-			{
-				listface->ldata[k] = listface->ldata[k+1];
-			}
-			listface->length -=1;
-		}
+		if(listface->ldata[j] == i)
+			supi(1,listface,j);
 		else if(listface->ldata[j] != listface->ldata[j+1])
-		{
-			for(k=j;k<listface->length;k++)
-			{
-				listface->ldata[k] = listface->ldata[k+1];
-			}
-			listface->length -=1;
-		}
+			supi(1,listface,j);
 		else j++;
 	}
 	return *listface;
@@ -93,21 +82,10 @@ ListInt FaceConnectees(polyedre p, int i){
 	j=0;
 	while(j<listface->length)
 	{
-		if(listface->ldata[j] == i){
-			for(k=j;k<listface->length;k++)
-			{
-				listface->ldata[k] = listface->ldata[k+1];
-			}
-			listface->length -=1;
-		}
+		if(listface->ldata[j] == i)
+			supi(1,listface,j);
 		else if(listface->ldata[j] == listface->ldata[j+1])
-		{
-			for(k=j;k<listface->length;k++)
-			{
-				listface->ldata[k] = listface->ldata[k+1];
-			}
-			listface->length -=1;
-		}
+			supi(1,listface,j);
 		else j++;
 	}
 	return *listface;

@@ -34,13 +34,5 @@ archive : clean
 clean : 
 	rm obj/* bin/* 
 	
-<<<<<<< HEAD
 test :
 	 cd bin && ./$(EXEC) pyramide.off && cd ..
-=======
-test : main.o
-	bin/$(EXEC) off/tetraedre.off
-
-testval : main.o
-	valgrind bin/$(EXEC) off/tetraedre.off
->>>>>>> c4e1f94add655dfd3f7b3a80ad02525e5c5b8fe1
