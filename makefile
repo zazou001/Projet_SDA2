@@ -35,4 +35,7 @@ clean :
 	rm obj/* bin/* 
 	
 test : main.o
-	 bin/$(EXEC) off/cube.off
+	bin/$(EXEC) off/tetraedre.off
+
+testval : main.o
+	valgrind bin/$(EXEC) off/tetraedre.off

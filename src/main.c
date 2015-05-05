@@ -12,6 +12,8 @@ int main(int argc, char *argv[]){
 	
 	pPolyedre poly;
 	poly = init(argv[1]);
+	printf("%d\n", NbSommet(*poly));
+	printf("%d\n", NbFace(*poly));
 	FaceIncidentes(*poly,2);
 	free(poly);
 	
