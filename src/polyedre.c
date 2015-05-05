@@ -18,20 +18,24 @@ int SommetFace(polyedre p,int i, int j){
 }
 
 ListInt FaceIncidentes(polyedre p, int i){
-	ListInt *listface = malloc(sizeof(ListInt)+sizeof(int));
+	ListInt *listface = malloc(sizeof(ListInt));
+	listface->length = 0;
+	listface->ldata = NULL;
 	int nbrearete = longueur(1,&p);
 	int nbreface = NbFace(p);
-	int Face = 0;
 	int j,k;
 	for(j=0;j<nbrearete;j++){
 		if(i==p.A->ldata[j]){
-			for(k=0;p.F->ldata[k].idebut <= j||k<nbreface;k++){}
-			Face++;	
-			listface=realloc(listface,sizeof(ListInt)+Face*sizeof(int));				
-			listface->ldata[Face-1] = k-1;
+			for(k=0;p.F->ldata[k].idebut <= j||k<nbreface;k++);
+			listface->length +=1;
+			listface->ldata=realloc(listface->ldata,(listface->length)*sizeof(int));				
+			listface->ldata[listface->length-1] = k-1;
 			}
 	}
-	listface->ldata[Face] = -1;
+	for(j=0;j<listface->length;j++)
+	{
+		printf("[%u]\n",listface->ldata[j]);
+	}
 	return *listface;
 }
 /*ListInt FaceAdjacentes(polyedre p, int i){
