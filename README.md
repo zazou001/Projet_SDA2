@@ -2,4 +2,4 @@
 projet SDA2 2015
 
 # TODO
-- ça avance ?
+- les fonctions inutile dans liste.c
