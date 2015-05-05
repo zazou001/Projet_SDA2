@@ -19,19 +19,19 @@ int SommetFace(polyedre p,int i, int j){
 
 ListInt FaceIncidentes(polyedre p, int i){
 	ListInt *listface = malloc(sizeof(ListInt)+sizeof(int));
-	/*int nbrearete = sizeof(p.A)/sizeof(arete);
+	int nbrearete = longueur(1,&p);
 	int nbreface = NbFace(p);
 	int Face = 0;
 	int j,k;
 	for(j=0;j<nbrearete;j++){
-		if(i==p.A.laretes[j]){
-			for(k=0;p.F.lFaces[k].cote[0] <= j||k<nbreface;k++){}
+		if(i==p.A->ldata[j]){
+			for(k=0;p.F->ldata[k].idebut <= j||k<nbreface;k++){}
 			Face++;	
 			listface=realloc(listface,sizeof(ListInt)+Face*sizeof(int));				
-			listface->lInt[Face-1] = k-1;
+			listface->ldata[Face-1] = k-1;
 			}
 	}
-	listface->lInt[Face] = -1;*/
+	listface->ldata[Face] = -1;
 	return *listface;
 }
 /*ListInt FaceAdjacentes(polyedre p, int i){

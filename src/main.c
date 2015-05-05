@@ -12,6 +12,7 @@ int main(int argc, char *argv[]){
 	
 	pPolyedre poly;
 	poly = init(argv[1]);
+	printf("%i\n",NbFace(*poly));
 	free(poly);
 	
 	return EXIT_SUCCESS;
