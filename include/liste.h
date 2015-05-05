@@ -8,14 +8,13 @@
 #include "sommet.h"
 
 pPolyedre initliste(unsigned int nbrepoint, unsigned int nbreface, unsigned int nbrearete);
-pPolyedre adjq(pPolyedre poly,int type, ...);
-pPolyedre adjt(pPolyedre poly,int type, ...);
-pPolyedre adji(unsigned int i, pPolyedre poly, int type,...);
-pPolyedre supq(int type, pPolyedre poly);
-pPolyedre supt(int type, pPolyedre poly);
-pPolyedre supi(int type, pPolyedre poly, unsigned int i);
-int longueur(int type, pPolyedre poly);
-void printlist(int type, pPolyedre poly);
-void freeliste(pPolyedre poly);
+void* adjq(void *liste,int type, ...);
+void* adjt(void *liste,int type, ...);
+void* adji(unsigned int i, void *liste, int type,...);
+void* supq(int type, void *liste);
+void* supt(int type, void *liste);
+void* supi(int type, void *liste, unsigned int i);
+int longueur(int type, void *liste);
+void freeliste(int type, void *liste);
 
 #endif

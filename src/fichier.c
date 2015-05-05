@@ -18,14 +18,14 @@ pPolyedre init(char* fichier){
 	p = initliste(nbrepoint, nbreface, nbrearete);
 	for(i=0;i<nbrepoint;i++){
 		fscanf(pFiles,"%lf %lf %lf",&x, &y, &z);
-		adjq(p, 3, x, y, z);
+		adjq(p->S, 3, x, y, z);
 	}
 	for(i=0;i<nbreface;i++){
 		fscanf(pFiles,"%u",&areteface);
-		adjq(p,2,k,areteface);
+		adjq(p->F,2,k,areteface);
 		for(j=0;j<areteface;j++){
 			fscanf(pFiles,"%u",&iarete);
-			adjq(p,1,iarete);
+			adjq(p->A,1,iarete);
 		}
 		k += areteface;
 	}

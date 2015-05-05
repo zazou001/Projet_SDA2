@@ -14,110 +14,93 @@ pPolyedre initliste(unsigned int nbrepoint, unsigned int nbreface, unsigned int 
 	P->A->length = 0;
 	return P;
 }
-pPolyedre adjq(pPolyedre poly, int type, ...)
+void* adjq(void *liste, int type, ...)
 {
 	va_list vl;
 	va_start(vl,type);
 	switch(type)
 	{
 		case 3:
-			poly->S->ldata[poly->S->length].x = va_arg(vl,double);
-			poly->S->ldata[poly->S->length].y = va_arg(vl,double);
-			poly->S->ldata[poly->S->length].z = va_arg(vl,double);
-			poly->S->length += 1;
+			((ListPoints*)liste)->ldata[((ListPoints*)liste)->length].x = va_arg(vl,double);
+			((ListPoints*)liste)->ldata[((ListPoints*)liste)->length].y = va_arg(vl,double);
+			((ListPoints*)liste)->ldata[((ListPoints*)liste)->length].z = va_arg(vl,double);
+			((ListPoints*)liste)->length += 1;
 			break;
 		case 2:
-			poly->F->ldata[poly->F->length].idebut = va_arg(vl,unsigned int);
-			poly->F->ldata[poly->F->length].nbrearete = va_arg(vl,unsigned int);
-			poly->F->length += 1;
+			((ListFaces*)liste)->ldata[((ListFaces*)liste)->length].idebut = va_arg(vl,unsigned int);
+			((ListFaces*)liste)->ldata[((ListFaces*)liste)->length].nbrearete = va_arg(vl,unsigned int);
+			((ListFaces*)liste)->length += 1;
 			break;
 		case 1:
-			poly->A->ldata[poly->A->length] = va_arg(vl,unsigned int);
-			poly->A->length += 1;
+			((ListArete*)liste)->ldata[((ListArete*)liste)->length] = va_arg(vl,unsigned int);
+			((ListArete*)liste)->length += 1;
 			break;
 	}
 	va_end(vl);
-	return poly;
+	return liste;
 }
-pPolyedre adjt(pPolyedre poly, int type, ...)
+void* adjt(void *liste, int type, ...)
 {
-	return poly;
+	return liste;
 }
-pPolyedre adji(unsigned int i,pPolyedre poly,  int type,...)
+void* adji(unsigned int i,void *liste,  int type,...)
 {
-	return poly;
+	return liste;
 }
-pPolyedre supq(int type, pPolyedre poly)
-{
-	switch(type)
-	{
-		case 3:
-			poly->S->length -= 1;
-			break;
-		case 2:
-			poly->F->length -= 1;
-			break;
-		case 1:
-			poly->A->length -= 1;
-			break;
-	}
-}
-pPolyedre supt(int type, pPolyedre poly)
-{
-	return poly;
-}
-pPolyedre supi(int type, pPolyedre poly, unsigned int i)
-{
-	return poly;
-}
-int longueur(int type, pPolyedre poly)
+void* supq(int type, void *liste)
 {
 	switch(type)
 	{
 		case 3:
-			return poly->S->length;
+			((ListPoints*)liste)->length -= 1;
 			break;
 		case 2:
-			return poly->F->length;
+			((ListFaces*)liste)->length -= 1;
 			break;
 		case 1:
-			return poly->A->length;
+			((ListArete*)liste)->length -= 1;
 			break;
 	}
 }
-void printlist(int type, pPolyedre poly)
+void* supt(int type, void *liste)
 {
-	unsigned int i;
+	return liste;
+}
+void* supi(int type, void *liste, unsigned int i)
+{
+	return liste;
+}
+int longueur(int type, void *liste)
+{
 	switch(type)
 	{
 		case 3:
-			for(i=0;i<poly->S->length;i++)
-			{
-				printf("[%lf,%lf,%lf]\n",
-				poly->S->ldata[i].x,poly->S->ldata[i].y,poly->S->ldata[i].z);
-			}
+			return ((ListPoints*)liste)->length;
 			break;
 		case 2:
-			for(i=0;i<poly->F->length;i++)
-			{
-				printf("[%u,%u]\n",
-				poly->F->ldata[i].idebut,poly->F->ldata[i].nbrearete);
-			}
+			return ((ListFaces*)liste)->length;
 			break;
 		case 1:
-			for(i=0;i<poly->F->length;i++)
-			{
-				printf("[%u]\n",poly->A->ldata[i]);
-			}
+			return ((ListArete*)liste)->length;
 			break;
 	}
 }
-void freeliste(pPolyedre poly){
-	free(poly->S->ldata);
-	free(poly->F->ldata);
-	free(poly->A->ldata);
-	free(poly->S);
-	free(poly->F);
-	free(poly->A);
-	free(poly);
+
+void freeliste(int type, void *liste){
+		switch(type)
+	{
+		case 3:
+			free(((ListPoints*)liste)->ldata);
+			free(((ListPoints*)liste));
+			break;
+		case 2:
+			free(((ListFaces*)liste)->ldata);
+			free(((ListFaces*)liste));
+			break;
+		case 1:
+			free(((ListArete*)liste)->ldata);
+			free(((ListArete*)liste));
+			break;
+	}
+
 }

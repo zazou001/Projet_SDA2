@@ -17,7 +17,6 @@ typedef struct{
 
 typedef unsigned int arete;
 
-pSommet point(float x, float y, float z);
-pFace cote(unsigned int idebut, unsigned int nbrearete);
+int compareints (const void * a, const void * b);
 
 #endif

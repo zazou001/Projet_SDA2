@@ -11,9 +11,14 @@ int main(int argc, char *argv[]){
 	if(argc == 1) {printf("Pas assez d'arguments.\n"); return 2;}
 	
 	pPolyedre poly;
+	int j;
 	poly = init(argv[1]);
-	FaceIncidentes(*poly,2);
-	free(poly);
+	ListInt listface = FaceConnectees(*poly,2);
+	for(j=0;j<listface.length;j++)
+	{
+		printf("[%u]\n",listface.ldata[j]);
+	}
+	freeliste(3,poly->S);
 	
 	return EXIT_SUCCESS;
 }

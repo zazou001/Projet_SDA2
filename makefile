@@ -35,4 +35,4 @@ clean :
 	rm obj/* bin/* 
 	
 test :
-	 cd bin && ./$(EXEC) cube.off && cd ..
+	 cd bin && ./$(EXEC) pyramide.off && cd ..
