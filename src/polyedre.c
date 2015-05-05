@@ -1,4 +1,5 @@
 #include "polyedre.h"
+/*
 polyedre* initpolyedre(int s, int a, int f){
 	polyedre *poly = malloc(sizeof(polyedre)+
 						   s*sizeof(sommet)+
@@ -43,6 +44,7 @@ ListInt FaceIncidentes(polyedre p, int i){
 	return *listface;
 }
 ListInt FaceAdjacentes(polyedre p, int i){
+	
 return NULL;
 }
 ListInt FaceConnectees(polyedre p, int i){

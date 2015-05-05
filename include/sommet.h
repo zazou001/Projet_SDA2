@@ -1,14 +1,23 @@
 #ifndef SOMMET_H_
 #define SOMMET_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct{
-	float coord[3];
+	float x;
+	float y;
+	float z;
 }sommet, *pSommet;
 
 typedef struct{
-	signed int cote[2];
+	unsigned int idebut;
+	unsigned int nbrearete;
 }face, *pFace;
 
-typedef signed int arete;
+typedef unsigned int arete;
+
+pSommet point(float x, float y, float z);
+pFace cote(unsigned int idebut, unsigned int nbrearete);
 
 #endif
