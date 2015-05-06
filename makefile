@@ -35,4 +35,6 @@ clean :
 	rm obj/* bin/* 
 	
 test :
-	 cd bin && ./$(EXEC) pyramide.off && cd ..
+	bin/$(EXEC) off/pyramide.off
+testval :
+	valgrind bin/$(EXEC) off/pyramide.off
