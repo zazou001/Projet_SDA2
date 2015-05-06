@@ -6,17 +6,27 @@
 #include "polyedre.h"
 #include "sommet.h"
 
-pPoloptim initlistech(unsigned int nbrepoint, unsigned int nbreface, unsigned int nbrearete);
-pPoloptim adjqch(char type, pPoloptim poly, void* data);
-pPoloptim adjtch(char type, pPoloptim poly, void* data);
-pPoloptim adjich(char type, pPoloptim poly, void* data, unsigned int i);
-pPoloptim supqch(char type, pPoloptim poly);
-pPoloptim suptch(char type, pPoloptim poly);
-pPoloptim supich(char type, pPoloptim poly, unsigned int i);
-void * tete(char type, pPoloptim poly);
+typedef struct{
+	int length;
+	pMaillon chaine;
+}listc, *pListc;
+
+typedef struct{
+	int data;
+	pMaillon s;
+}maillon, *pMaillon;
+
+listc initlistech();
+listc adjqch(listc liste, ...);
+listc adjtch(listc liste, ...);
+listc adjich(unsigned int i, listc liste,...);
+listc supqch(listc liste);
+listc suptch(listc liste);
+listc supich(listc liste, unsigned int i);
+void * tete(char type, listc liste);
 void * suivant(char type, void *data);
-int est_vide(char type, pPoloptim poly);
-int longueurch(char type, pPoloptim poly);
-void freeoptim(char type, pPoloptim poly);
+int est_vide(char type, listc liste);
+int longueurch(char type, listc liste);
+void freeoptim(char type, listc liste);
 
 #endif
