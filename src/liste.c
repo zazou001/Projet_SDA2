@@ -42,34 +42,38 @@ void* adjq(void *liste, int type, ...)
 void* adjt(void *liste, int type, ...)
 {
 	int j;
+	va_list vl;
+	va_start(vl,type);
 		switch(type)
 	{
 		case 3:
 			((ListPoints*)liste)->length +=1;
 			for(j=((ListPoints*)liste)->length;j>=0;j--)
 				((ListPoints*)liste)->ldata[j] = ((ListPoints*)liste)->ldata[j-1];
-			((ListPoints*)liste)->ldata[i].x = va_arg(vl,double);
-			((ListPoints*)liste)->ldata[i].y = va_arg(vl,double);
-			((ListPoints*)liste)->ldata[i].z = va_arg(vl,double);
+			((ListPoints*)liste)->ldata[0].x = va_arg(vl,double);
+			((ListPoints*)liste)->ldata[0].y = va_arg(vl,double);
+			((ListPoints*)liste)->ldata[0].z = va_arg(vl,double);
 			break;
 		case 2:
 			((ListFaces*)liste)->length +=1;
 			for(j=((ListFaces*)liste)->length;j>=0;j--)
 				((ListFaces*)liste)->ldata[j] = ((ListFaces*)liste)->ldata[j-1];
-			((ListFaces*)liste)->ldata[i].idebut = va_arg(vl,unsigned int);
-			((ListFaces*)liste)->ldata[i].nbrearete = va_arg(vl,unsigned int);
+			((ListFaces*)liste)->ldata[0].idebut = va_arg(vl,unsigned int);
+			((ListFaces*)liste)->ldata[0].nbrearete = va_arg(vl,unsigned int);
 			break;
 		case 1:
 			((ListArete*)liste)->length +=1;
 			for(j=((ListArete*)liste)->length;j>=0;j--)
 				((ListArete*)liste)->ldata[j] = ((ListArete*)liste)->ldata[j-1];
-			((ListArete*)liste)->ldata[i] = va_arg(vl,unsigned int);
+			((ListArete*)liste)->ldata[0] = va_arg(vl,unsigned int);
 			break;
 	}
 	return liste;
 }
 void* adji(unsigned int i,void *liste,  int type,...)
 {
+	va_list vl;
+	va_start(vl,type);
 	int j;
 		switch(type)
 	{
