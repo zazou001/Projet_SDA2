@@ -1,17 +1,40 @@
 #include "polyedre.h"
-int NbSommet(polyedre p){
-	return longueur(3,&p);
+
+pPolyedre initliste(unsigned int nbrepoint, unsigned int nbreface, unsigned int nbrearete)
+{
+	pPolyedre P = malloc(sizeof(polyedre));
+	P->S = malloc(sizeof(ListPoints));
+	P->F = malloc(sizeof(ListFaces));
+	P->A = malloc(sizeof(ListArete));
+	P->S->ldata = malloc(sizeof(sommet) *nbrepoint);
+	P->F->ldata = malloc(sizeof(face) *nbreface);
+	P->A->ldata = malloc(sizeof(arete) *nbrearete);
+	P->S->length = 0;
+	P->F->length = 0;
+	P->A->length = 0;
+	return P;
 }
-int NbFace(polyedre p){
-	return longueur(2,&p);
+
+int NbSommet(polyedre p)
+{
+	return longueur(3,&(p.S));
 }
-sommet GetSommet(polyedre p,int i){
+int NbFace(polyedre p)
+{
+	return longueur(2,&p.F);
+}
+sommet GetSommet(polyedre p,int i)
+{
 	return p.S->ldata[i-1];
 }
-int NbSommetFace(polyedre p, int i){
+
+int NbSommetFace(polyedre p, int i)
+{
 	return p.F->ldata[i-1].nbrearete;
 }
-int SommetFace(polyedre p,int i, int j){
+
+int SommetFace(polyedre p,int i, int j)
+{
 	if(NbSommetFace(p,i)<(j))
 		exit(EXIT_FAILURE);
 	return p.A->ldata[p.F->ldata[i-1].idebut+j-1];

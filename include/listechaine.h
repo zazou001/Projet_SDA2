@@ -7,27 +7,28 @@
 #include "polyedre.h"
 #include "sommet.h"
 
+typedef struct maillon {
+	int data;
+	struct maillon *s;
+}maillon, *pMaillon;
+
 typedef struct{
 	int length;
 	pMaillon chaine;
 }listc, *pListc;
 
-typedef struct{
-	int data;
-	pMaillon s;
-}maillon, *pMaillon;
 
 listc initlistech();
-listc adjqch(listc liste, ...);
-listc adjtch(listc liste, ...);
-listc adjich(unsigned int i, listc liste,...);
+listc adjqch(listc liste, int data,...);
+listc adjtch(listc liste, int data,...);
+listc adjich(unsigned int i, listc liste, int data,...);
 listc supqch(listc liste);
 listc suptch(listc liste);
 listc supich(listc liste, unsigned int i);
-void * tete(char type, listc liste);
-void * suivant(char type, void *data);
-int est_vide(char type, listc liste);
-int longueurch(char type, listc liste);
-void freeoptim(char type, listc liste);
+maillon tete(listc liste);
+maillon suivant(maillon m);
+int est_vide(listc liste);
+int longueurch(listc liste);
+void freech(pMaillon m);
 
 #endif

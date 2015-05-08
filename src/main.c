@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 #include "polyedre.h"
+#include "liste.h"
+#include "listechaine.h"
 //#include "poloptim.h"
 #include "fichier.h"
          
@@ -19,6 +21,8 @@ int main(int argc, char *argv[]){
 		printf("[%u]\n",listface.ldata[j]);
 	}
 	freeliste(3,poly->S);
-	
+	freeliste(2,poly->F);
+	freeliste(1,poly->A);
+	free(poly);
 	return EXIT_SUCCESS;
 }

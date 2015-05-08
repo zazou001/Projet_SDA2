@@ -4,26 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sommet.h"
-
-typedef struct{
-	int length;
-	sommet *ldata;
-}ListPoints;
-
-typedef struct{
-	int length;
-	arete *ldata;
-}ListArete;
-
-typedef struct{
-	int length;
-	face *ldata;
-}ListFaces;
-
-typedef struct{
-	int length;
-	int *ldata;
-}ListInt;
+#include "liste.h"
 
 typedef struct{
 	ListPoints *S;
@@ -31,7 +12,7 @@ typedef struct{
 	ListFaces *F;
 }polyedre,*pPolyedre;
 
-
+pPolyedre initliste(unsigned int nbrepoint, unsigned int nbreface, unsigned int nbrearete);
 int NbSommet(polyedre p);
 int NbFace(polyedre p);
 sommet GetSommet(polyedre p,int i);

@@ -1,19 +1,5 @@
 #include "liste.h"
 
-pPolyedre initliste(unsigned int nbrepoint, unsigned int nbreface, unsigned int nbrearete)
-{
-	pPolyedre P = malloc(sizeof(polyedre));
-	P->S = malloc(sizeof(ListPoints));
-	P->F = malloc(sizeof(ListFaces));
-	P->A = malloc(sizeof(ListArete));
-	P->S->ldata = malloc(sizeof(sommet) *nbrepoint);
-	P->F->ldata = malloc(sizeof(face) *nbreface);
-	P->A->ldata = malloc(sizeof(arete) *nbrearete);
-	P->S->length = 0;
-	P->F->length = 0;
-	P->A->length = 0;
-	return P;
-}
 void* adjq(void *liste, int type, ...)
 {
 	va_list vl;

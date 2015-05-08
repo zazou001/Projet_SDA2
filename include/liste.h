@@ -4,10 +4,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
-#include "polyedre.h"
 #include "sommet.h"
+//#include "polyedre.h"
 
-pPolyedre initliste(unsigned int nbrepoint, unsigned int nbreface, unsigned int nbrearete);
+typedef struct{
+	int length;
+	sommet *ldata;
+}ListPoints;
+
+typedef struct{
+	int length;
+	arete *ldata;
+}ListArete;
+
+typedef struct{
+	int length;
+	face *ldata;
+}ListFaces;
+
+typedef struct{
+	int length;
+	int *ldata;
+}ListInt;
+
+#include "polyedre.h"
 void* adjq(void *liste,int type, ...);
 void* adjt(void *liste,int type, ...);
 void* adji(unsigned int i, void *liste, int type,...);
