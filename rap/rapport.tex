@@ -16,12 +16,12 @@
 \date{Semestre Printemps 2015}
 \author{MEYER Cyril, ZANZI Zachary}
 \maketitle 
+\textbf{{Sujet :}}
+Le projet de structures de données et algorithmes de ce semestre nous proposais de travailler avec des objets de type polyèdres.
 \thispagestyle{empty}
 
 \newpage
 \setcounter{page}{1}
-\textbf{{Sujet :}}
-Le projet de structures de données et algorithmes de ce semestre nous proposais de travailler avec des objets de type polyèdres.
 
 \section{Structures}
 Liste et définition des structures
@@ -60,6 +60,16 @@ Liste et définition des structures
 \textbf{{Nom :}} face, *pFace
 \\
 \textbf{{Champs :}} unsigned int idebut; unsigned int nbrearete;
+\\
+\\
+\textbf{{Nom :}} listc, *pListc
+\\
+\textbf{{Champs :}} int length; pMaillon chaine;
+\\
+\\
+\textbf{{Nom :}} maillon, *pMaillon
+\\
+\textbf{{Champs :}} int data; pMaillon s;
 \\
 \\
 \newpage
@@ -101,10 +111,23 @@ Liste et définition des fonctions les plus importantes
 \textbf{{Pré-condition :}} i ${\in}$ p
 \\
 \\
+\newpage
 \section{Conclusion}
-
+Ce projet fût très instructif, il nous a permis de nous familiariser avec les structures de données complexe, ainsi que de travailler en équipe de façon efficace.
+\subsection{Difficultés rencontrées}
+La partie optimisation (listes chaînées) nous a posez beaucoup de problème d'implémentations.
+\subsection{Amélioration et application possible}
 \begin{itemize}
-\item 
+\item Modification et enregistrements du modèle sur un nouveau fichier
+\item Modification mathématique du modèle
+\begin{itemize}
+\item Translation
+\item Rotation
+\item Symétrie
+\item Projection
+\item Homothétie
+\end{itemize}
+\item Appliquer une fonction sur l'ensemble des points (système de filtres en 3 dimension)
 \end{itemize}
 
 
