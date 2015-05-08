@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include "sommet.h"
-//#include "polyedre.h"
 
 typedef struct{
 	int length;
@@ -27,7 +26,6 @@ typedef struct{
 	int *ldata;
 }ListInt;
 
-#include "polyedre.h"
 void* adjq(void *liste,int type, ...);
 void* adjt(void *liste,int type, ...);
 void* adji(unsigned int i, void *liste, int type,...);

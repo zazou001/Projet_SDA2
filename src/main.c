@@ -3,8 +3,7 @@
 
 #include "polyedre.h"
 #include "liste.h"
-#include "listechaine.h"
-//#include "poloptim.h"
+#include "poloptim.h"
 #include "fichier.h"
          
 int main(int argc, char *argv[]){
@@ -16,6 +15,8 @@ int main(int argc, char *argv[]){
 	int j;
 	poly = init(argv[1]);
 	ListInt listface = FaceConnectees(*poly,2);
+	poloptim p = convertir(*poly);
+	//FaceAdjacentesoptim(p,1);
 	for(j=0;j<listface.length;j++)
 	{
 		printf("[%u]\n",listface.ldata[j]);

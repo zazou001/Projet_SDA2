@@ -1,6 +1,35 @@
 #include "poloptim.h"
 
-poloptim convertir(polyedre p);
+poloptim convertir(polyedre p)
+{
+	int i, j;
+	//ListInt liste;
+	poloptim *o =malloc(sizeof(poloptim));
+	o->S = p.S;
+	o->A = p.A;
+	o->F = p.F;
+	o->sa = initable(p.S->length);
+	o->fi = initable(p.F->length);
+	for(i=0;i<=p.S->length;i++)
+	{/*
+		ListInt liste = FaceIncidentes(p,i);
+		for(j=0;j<liste.length;j++)
+		{
+			//ajoute(o->sa,i,liste.ldata[j]);
+		}
+		freeliste(1,(&liste));*/
+	}
+	/*
+	for(i=0;i<=p.F->length;i++)
+	{
+		liste = FaceConnectees(p,i);
+		for(j=0;j<liste.length;j++)
+		{
+			ajoute(*(o->fi),i,liste.ldata[j]);
+		}
+	}*/
+	return *o;
+}
 int NbSommetoptim(poloptim p)
 {
 	return longueur(3,&(p.S));
@@ -50,7 +79,7 @@ ListInt FaceConnecteesoptim(poloptim p, int i)
 	{
 		adjq(l,1,m.data);
 		m = suivant(m);
-	}l
-	return l;
+	}
+	return *l;
 }
 int Connexeoptim(poloptim p, poloptim cc[]);

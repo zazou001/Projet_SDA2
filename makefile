@@ -18,7 +18,7 @@ $(EXEC) : $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $(OBJECTS_DIR) $(LIB)
 	mv $@ bin/.
 	
-main.o : polyedre.h fichier.h liste.h listechaine.h
+main.o : polyedre.h fichier.h liste.h poloptim.h
 fichier.o : fichier.h polyedre.h sommet.h
 poloptim.o : polyedre.h sommet.h liste.h listechaine.h table.h poloptim.h
 table.o : sommet.h listechaine.h table.h

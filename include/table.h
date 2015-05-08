@@ -11,9 +11,9 @@ typedef struct{
 	listc *chaine;
 }tablistc, *pTablistc;
 
-tablistc initable(int t);
-tablistc ajoute(tablistc t, int i, int d);
-tablistc retire(tablistc t, int i, int d);
+pTablistc initable(int t);
+pTablistc ajoute(pTablistc t, int i, int d);
+pTablistc retire(pTablistc t, int i, int d);
 int element(tablistc t, int i, int j);
 int card(tablistc t);
 int estvide(tablistc t);
